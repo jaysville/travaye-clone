@@ -8,7 +8,6 @@ import SideNav from "./components/Layout/SIdeNav";
 import Loader from "./components/UI/Loader";
 import { fetchLocations } from "./state";
 import RequireAuth from "./Layout/RequireAuth";
-import Main from "./Pages/Main";
 
 const AddedLocations = lazy(() => {
   return import("./Pages/AddedLocations");
@@ -62,7 +61,7 @@ function App() {
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/" element={<Main />} /> */}
+
           {!token && <Route path="/login" element={<Login />} />}
           {!token && <Route path="/signup" element={<SignUp />} />}
           <Route path="" element={<RequireAuth />}>
